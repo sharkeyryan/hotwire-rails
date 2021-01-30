@@ -22,7 +22,7 @@ x-common-app-settings: &common_app_settings
 services:
   app:
     <<: *common_app_settings
-    command: ["bin/rails", "s"]
+    command: bin/start
     ports:
       - "3000:3000"
 
