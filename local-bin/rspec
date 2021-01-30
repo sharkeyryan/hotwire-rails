@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cd ${BASH_SOURCE%/*}/..
+# drun env RAILS_ENV=test xvfb-run -a rspec $*
+# docker-compose run -e RAILS_ENV=test --rm app xvfb-run -a rspec $*
+# docker-compose run --rm app xvfb-run -a rspec $*
+docker-compose run --rm app rspec $*

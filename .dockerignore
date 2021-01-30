@@ -1,0 +1,10 @@
+/log/*
+/tmp/*
+/node_modules/*
+.idea
+.byebug_history
+**/.DS_Store
+spec/examples.txt
+coverage/**/*
+.vscode/settings.json
+.env

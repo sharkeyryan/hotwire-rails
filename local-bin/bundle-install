@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd ${BASH_SOURCE%/*}/..
+drun bundle $*
+docker-compose build app

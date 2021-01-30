@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tweets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <div class="d-flex ">
+    <%= turbo_stream_from "tweets" %>
+    <%= turbo_frame_tag "tweets" do %>
+      <%= render @tweets %>
+    <% end %>
+  </div>
+</table>
+
+<br>
+
+<%= link_to 'New Tweet', new_tweet_path %>

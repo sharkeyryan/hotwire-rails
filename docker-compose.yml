@@ -1,0 +1,33 @@
+version: "3.5"
+
+x-common-app-settings: &common_app_settings
+  image: hotwire-test:local-dev
+  build:
+    context: .
+    dockerfile: ./Dockerfile-dev
+  tty: true
+  environment:
+    DATABASE_HOST: postgres
+    REDIS_HOST: redis
+    RAILS_ENV: development
+  volumes:
+    - .:/app:delegated
+    - type: tmpfs
+      target: /app/tmp/pids/
+  networks:
+    - default
+    - postgres
+    - redis
+
+services:
+  app:
+    <<: *common_app_settings
+    command: ["bin/rails", "s"]
+    ports:
+      - "3000:3000"
+
+networks:
+  postgres:
+    external: true
+  redis:
+    external: true

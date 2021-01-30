@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd ${BASH_SOURCE%/*}/..
+rm tmp/pids/* > /dev/null 2>&1
+docker-compose down
