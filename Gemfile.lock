@@ -189,6 +189,9 @@ GEM
     tilt (2.0.10)
     turbo-rails (0.5.8)
       rails (>= 6.0.0)
+    turbolinks (5.2.1)
+      turbolinks-source (~> 5.2)
+    turbolinks-source (5.2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     web-console (4.1.0)
@@ -220,7 +223,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   hotwire-rails
-  image_processing (~> 1.2)
+  image_processing
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (~> 1.1)
@@ -231,6 +234,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   spring
+  turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)
   webdrivers

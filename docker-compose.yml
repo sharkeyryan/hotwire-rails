@@ -10,6 +10,7 @@ x-common-app-settings: &common_app_settings
     DATABASE_HOST: postgres
     REDIS_HOST: redis
     RAILS_ENV: development
+    WEBPACKER_DEV_SERVER_HOST: webpack-dev-server
   volumes:
     - .:/app:delegated
     - type: tmpfs
@@ -25,6 +26,8 @@ services:
     command: bin/start
     ports:
       - "3000:3000"
+    depends_on:
+      - webpack-dev-server
   webpack-dev-server:
     <<: *common_app_settings
     command: bin/webpack-dev-server
