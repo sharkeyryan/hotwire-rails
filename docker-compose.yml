@@ -25,6 +25,11 @@ services:
     command: bin/start
     ports:
       - "3000:3000"
+  webpack-dev-server:
+    <<: *common_app_settings
+    command: bin/webpack-dev-server
+    ports:
+      - "3035:3035"
 
 networks:
   postgres:
