@@ -8,6 +8,8 @@ x-common-app-settings: &common_app_settings
   tty: true
   environment:
     DATABASE_HOST: postgres
+    DATABASE_USERNAME: postgres
+    DATABASE_PASSWORD: postpass
     REDIS_HOST: redis
     RAILS_ENV: development
     WEBPACKER_DEV_SERVER_HOST: webpack-dev-server
@@ -30,6 +32,9 @@ services:
       - webpack-dev-server
   webpack-dev-server:
     <<: *common_app_settings
+    environment:
+      NODE_ENV: development
+      WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
     command: bin/webpack-dev-server
     ports:
       - "3035:3035"
