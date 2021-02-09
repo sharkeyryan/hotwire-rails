@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a basic Rails 6 application that uses Hotwire.
 
-Things you may want to cover:
+In order to get the application running locally (on your Mac), follow these
+steps.
 
-* Ruby version
+  1. You can setup the application and database by running the setup script:
 
-* System dependencies
+    `setup`
 
-* Configuration
+  2. Once setup is completed, you can start the application using docker-compose with:
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+    `start`
