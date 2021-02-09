@@ -19,9 +19,6 @@ x-common-app-settings: &common_app_settings
       target: /app/tmp/pids/
   networks:
     - default
-    - postgres
-    - redis
-
 services:
   app:
     <<: *common_app_settings
@@ -30,6 +27,8 @@ services:
       - "3000:3000"
     depends_on:
       - webpack-dev-server
+      - postgres
+      - redis
   webpack-dev-server:
     <<: *common_app_settings
     environment:
@@ -38,9 +37,21 @@ services:
     command: bin/webpack-dev-server
     ports:
       - "3035:3035"
-
-networks:
   postgres:
-    external: true
+    image: postgres:12.1
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postpass
+    ports:
+      - "5432:5432"
+    volumes:
+      - hotwire-rails-postgres:/var/lib/postgresql/data
   redis:
-    external: true
+    image: redis:5.0.7
+    ports:
+      - "6379:6379"
+    volumes:
+      - hotwire-rails-redis:/var/lib/redis/data
+volumes:
+  hotwire-rails-postgres:
+  hotwire-rails-redis:

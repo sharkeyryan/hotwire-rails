@@ -14,22 +14,6 @@ function echo_result { echo_green ${1}; }
 function echo_warning { echo_red "\nWARNING: ${1}\n"; }
 
 # Check for dependancies
-ALL_CONTAINERS_UP=true
-for container in "postgres"; do
-  echo_header "Verifying \"${container}\" container is running..."
-  if [ -z `docker ps -f name=${container} | grep -io ${container}_${container}_1` ]; then
-    ALL_CONTAINERS_UP=false
-    echo_red "not found"
-  else
-    echo_result "found"
-  fi
-done
-if [ "$ALL_CONTAINERS_UP" = false ] ; then
-  echo_warning "Each of the above docker containers must be running."
-  echo_cyan "Please refer to the \"compose-services\" repository for additional information:"
-  echo_cyan "https://gitlab.emfeng.com/emfeng/compose-services\n"
-  exit
-fi
 
 if [ "$(uname -s)" == "Darwin" ]; then
   cd ${BASH_SOURCE%/*}/..
