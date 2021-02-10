@@ -107,10 +107,12 @@ GEM
     mimemagic (0.3.5)
     mini_magick (4.11.0)
     mini_mime (1.0.2)
+    mini_portile2 (2.5.0)
     minitest (5.14.3)
     msgpack (1.4.2)
     nio4r (2.5.5)
-    nokogiri (1.11.1-x86_64-linux)
+    nokogiri (1.11.1)
+      mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     pg (1.2.3)
     public_suffix (4.0.6)
@@ -169,6 +171,8 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    seedbank (0.5.0)
+      rake (>= 10.0)
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
@@ -227,6 +231,7 @@ DEPENDENCIES
   rails (~> 6.1.1)
   redis (~> 4.0)
   sass-rails (>= 6)
+  seedbank (~> 0.5.0)
   selenium-webdriver
   spring
   tzinfo-data

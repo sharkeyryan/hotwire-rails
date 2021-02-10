@@ -12,9 +12,18 @@
   <% end %>
 
   <div class="actions">
-    <%= form.label :content %>
     <%= form.rich_text_area :content %>
+
     <br />
-    <%= form.submit %>
+
+    <%= form.submit(
+      class: 'btn btn-sm btn-primary text-white'
+    ) %>
+
+    <%= link_to(
+      'Cancel',
+      tweets_path,
+      class: 'btn btn-sm btn-secondary text-white'
+    ) %>
   </div>
 <% end %>
